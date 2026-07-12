@@ -2,88 +2,795 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Abdus | Software Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Netsammy is an independent software studio building Android, Windows, web, AI, automation, and game experiences.">
+  <title>Netsammy | Software House</title>
   <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #647084;
+      --line: #dce3ed;
+      --paper: #ffffff;
+      --wash: #f5f7fb;
+      --navy: #12213a;
+      --teal: #0e8f91;
+      --amber: #f4a51c;
+      --rose: #cc3f6c;
+      --green: #2b8c55;
+      --shadow: 0 18px 45px rgba(18, 33, 58, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f4f4f9;
-      color: #333;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--wash);
+      line-height: 1.6;
     }
-    header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-    }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #2c3e50;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #eee;
-      margin-top: 40px;
-    }
+
     a {
-      color: #2980b9;
+      color: inherit;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(220, 227, 237, 0.9);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--rose));
+      box-shadow: 0 10px 24px rgba(14, 143, 145, 0.22);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(18, 33, 58, 0.92), rgba(14, 143, 145, 0.78)),
+        url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: #fff;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 640px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 56px;
+      align-items: center;
+      padding: 76px 0 88px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: #dff7f6;
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--amber);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(2.8rem, 5vw, 4.9rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 26px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      color: var(--navy);
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+    }
+
+    .button.secondary {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.38);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-panel {
+      align-self: stretch;
+      display: grid;
+      align-content: end;
+      gap: 14px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 124px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(18px);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 650;
+    }
+
+    main {
+      background: var(--wash);
+    }
+
+    .section {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 84px 0;
+    }
+
+    .section.compact {
+      padding-top: 64px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-heading p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .service {
+      min-height: 250px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(18, 33, 58, 0.05);
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .service h3,
+    .app-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      line-height: 1.25;
+    }
+
+    .service p,
+    .app-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .icon-teal { background: var(--teal); }
+    .icon-amber { background: var(--amber); color: var(--navy); }
+    .icon-rose { background: var(--rose); }
+    .icon-green { background: var(--green); }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .app-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(18, 33, 58, 0.05);
+    }
+
+    .app-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 9px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: #eef3f8;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .tag.play {
+      color: #0b6f4b;
+      background: #e9f7f0;
+    }
+
+    .tag.windows {
+      color: #1c5fb8;
+      background: #eaf2ff;
+    }
+
+    .app-link {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 8px;
+      color: var(--teal);
+      font-weight: 850;
+    }
+
+    .app-link::after {
+      content: ">";
+      line-height: 1;
+    }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .statement {
+      padding: 32px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .statement h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .statement p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .skill {
+      min-height: 92px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(18, 33, 58, 0.05);
+    }
+
+    .skill span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 550;
+    }
+
+    .contact-band {
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--navy));
+    }
+
+    .contact-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .contact-inner h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .contact-inner p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    footer {
+      background: #0d1728;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 26px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+
+    .footer-inner a {
+      color: #fff;
+      font-weight: 750;
+    }
+
+    @media (max-width: 920px) {
+      .hero-inner,
+      .skills-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        min-height: auto;
+      }
+
+      .services,
+      .apps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-heading,
+      .contact-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 660px) {
+      .nav {
+        min-height: auto;
+        padding: 18px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero-inner {
+        padding: 56px 0 68px;
+      }
+
+      h1 {
+        font-size: clamp(2.55rem, 12vw, 3.25rem);
+        line-height: 1.08;
+      }
+
+      .metric-grid,
+      .services,
+      .apps-grid,
+      .skill-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Abdus</h1>
-    <p>Software Engineer | Systems Architect | Consumer Advocate</p>
+  <header class="topbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Netsammy home">
+        <span class="brand-mark">N</span>
+        <span>Netsammy</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#apps">Apps</a>
+        <a href="#windows">Windows</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I’m a software engineer and systems architect with deep expertise in troubleshooting and optimizing 
-      CLI tool installations across Windows and Linux. I specialize in reproducible, audit-ready workflows, 
-      PATH management, VM/OS optimization, and integrating AI inference engines like AirLLM and Ollama.
-    </p>
-    <p>
-      Beyond technical work, I’m also a professional communicator and consumer advocate — drafting 
-      formal audit checklists, comparison tables, and escalation templates to ensure reliability and accountability.
-    </p>
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Independent Software House</p>
+        <h1>Netsammy builds practical apps, games, and AI-powered digital products.</h1>
+        <p class="hero-copy">
+          Led by Abdus Sami, Netsammy ships Android and Windows products across games, utilities, productivity,
+          health, lifestyle, and automation. The focus is direct: build useful software, publish it, support it,
+          and keep improving it.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#apps">View Apps</a>
+          <a class="button secondary" href="mailto:netsamabdus@gmail.com">Contact Netsammy</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="Studio highlights">
+        <div class="metric-grid">
+          <div class="metric">
+            <strong>10+</strong>
+            <span>Published app and game projects</span>
+          </div>
+          <div class="metric">
+            <strong>2</strong>
+            <span>Primary platforms: Android and Windows</span>
+          </div>
+          <div class="metric">
+            <strong>2026</strong>
+            <span>Active releases across Google Play and Microsoft Store</span>
+          </div>
+          <div class="metric">
+            <strong>AI</strong>
+            <span>Automation, tooling, and workflow integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Skills & Interests</h2>
-    <ul>
-      <li>Expert in CLI tools (OpenClaw, Ollama, ComfyUI, AirLLM)</li>
-      <li>Advanced systems architecture: VM optimization, GPU passthrough, reproducible deployments</li>
-      <li>Audit-ready documentation and risk assessments</li>     
-      <li>Professional communication for vendor escalation</li>
-    </ul>
-  </section>
+  <main>
+    <section class="section" id="services">
+      <div class="section-heading">
+        <h2>What We Build</h2>
+        <p>
+          Netsammy works like a lean software house: product design, development, deployment,
+          store compliance, and technical operations under one roof.
+        </p>
+      </div>
 
-  <section>
-    <h2>Compliance</h2>
-    <p>
-      For transparency and ad network compliance, my <a href="/app-ads.txt">app-ads.txt</a> file is hosted here.
-    </p>
+      <div class="services">
+        <article class="service">
+          <div class="service-icon icon-teal">01</div>
+          <h3>Mobile Apps</h3>
+          <p>Android apps for lifestyle, productivity, utilities, health tracking, prayer times, and daily-use tools.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon icon-amber">02</div>
+          <h3>Games</h3>
+          <p>Arcade, racing, fighting, shooter, puzzle, and casual games built for Play Store and Windows users.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon icon-rose">03</div>
+          <h3>Web Presence</h3>
+          <p>GitHub Pages, privacy policies, compliance pages, landing pages, and product support destinations.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon icon-green">04</div>
+          <h3>AI and Automation</h3>
+          <p>Local AI tooling, CLI workflows, build automation, deployment checklists, and repeatable release systems.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section compact" id="apps">
+      <div class="section-heading">
+        <h2>Google Play Apps</h2>
+        <p>Selected Android releases by Abdus Sami and Netsammy, spanning games, utilities, lifestyle, and productivity.</p>
+      </div>
+
+      <div class="apps-grid">
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Action Game</span></div>
+            <h3>AlienBaseDefense</h3>
+            <p>3D alien wave survival with upgrades, pickups, radar, and base defense gameplay.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.netsammy.alienbasedefense">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Puzzle Game</span></div>
+            <h3>Neon Bubble Shooter: Retro Pop</h3>
+            <p>Cyber-grid bubble shooter with handcrafted levels, neon physics, and arcade-style effects.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.neon.bubbleshooter">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Fighting Game</span></div>
+            <h3>Desi Street Brawler</h3>
+            <p>2.5D fighting game with Pakistani-inspired arenas, quick rounds, and arcade combat controls.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.desistreetfighter.game">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Racing Game</span></div>
+            <h3>Need 4 Speed Karachi</h3>
+            <p>Karachi street racing with police pursuit, upgrades, nitro, boss routes, and traffic challenges.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.need4speedkarachi.game">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Productivity</span></div>
+            <h3>Habbit Tracker: Daily Streaks</h3>
+            <p>Clean daily habit tracking built around simple check-ins, streaks, and focused routine building.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.abdussami.habbittrackerapp">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Lifestyle</span></div>
+            <h3>PrayerTimesApp</h3>
+            <p>Prayer times, Azan notifications, and Qibla direction in a simple mobile experience.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.netsammy.prayertimesapp">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Health</span></div>
+            <h3>CaloriTrack</h3>
+            <p>Nutrition and calorie tracking app for users who want a simple daily health companion.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.caloritrack.app">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Entertainment</span></div>
+            <h3>TrendVue</h3>
+            <p>Trending video discovery app for exploring popular and viral content.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.netsammy.TrendVue">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag play">Google Play</span><span class="tag">Utility</span></div>
+            <h3>WorldTimeLive</h3>
+            <p>World time and date utility for users tracking cities, countries, and time zones.</p>
+          </div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.netsammy.worldtimelive">Open listing</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section compact" id="windows">
+      <div class="section-heading">
+        <h2>Windows Store Apps</h2>
+        <p>Microsoft Store releases built for desktop players and Windows users.</p>
+      </div>
+
+      <div class="apps-grid">
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag windows">Microsoft Store</span><span class="tag">Fighting Game</span></div>
+            <h3>Desi Brawler</h3>
+            <p>Windows arcade fighting game inspired by colorful South Asian streets and rooftop arenas.</p>
+          </div>
+          <a class="app-link" href="https://apps.microsoft.com/detail/9nqd5xxwnhf0">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag windows">Microsoft Store</span><span class="tag">Racing Game</span></div>
+            <h3>Karachi Street Racer</h3>
+            <p>3D traffic chase racing with police pursuit, nitro, boss routes, upgrades, and heavy traffic.</p>
+          </div>
+          <a class="app-link" href="https://apps.microsoft.com/detail/9p07xsg8rj7t">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag windows">Microsoft Store</span><span class="tag">Puzzle Game</span></div>
+            <h3>Neon Bubble Shooter: Retro Pop</h3>
+            <p>Windows edition of the neon retro bubble shooter experience.</p>
+          </div>
+          <a class="app-link" href="https://apps.microsoft.com/detail/9nqpfg8zcpz9">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag windows">Microsoft Store</span><span class="tag">Utility</span></div>
+            <h3>WorldTimeLive</h3>
+            <p>Windows time-zone utility for checking global dates and times.</p>
+          </div>
+          <a class="app-link" href="https://apps.microsoft.com/detail/9p86hmkl3rj0">Open listing</a>
+        </article>
+
+        <article class="app-card">
+          <div>
+            <div class="app-meta"><span class="tag windows">Microsoft Store</span><span class="tag">Health</span></div>
+            <h3>WaterIntake</h3>
+            <p>Hydration tracking utility for simple wellness reminders and daily water goals.</p>
+          </div>
+          <a class="app-link" href="https://apps.microsoft.com/detail/9p79c68t8t6l">Open listing</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="skills-wrap">
+        <div class="statement">
+          <h2>Skills & Interests</h2>
+          <p>
+            Netsammy combines product engineering with release discipline: mobile and desktop app development,
+            game prototyping, AI tooling, automation, publishing workflows, store compliance, and reliable support pages.
+          </p>
+        </div>
+
+        <div class="skill-list">
+          <div class="skill">Mobile Development<span>Android, Capacitor, Play Store releases, app signing, privacy and data safety.</span></div>
+          <div class="skill">Windows Apps<span>Microsoft Store packaging, desktop game publishing, store-ready assets.</span></div>
+          <div class="skill">Game Development<span>2D, 2.5D, and 3D gameplay prototypes for arcade, racing, shooter, and puzzle games.</span></div>
+          <div class="skill">Web Development<span>Static sites, landing pages, GitHub Pages, compliance pages, and support portals.</span></div>
+          <div class="skill">AI Workflows<span>OpenAI, Ollama, local AI tooling, automation, and practical assistant-driven development.</span></div>
+          <div class="skill">Systems Engineering<span>Windows/Linux tooling, CLI setup, reproducible builds, VM optimization, and deployment checks.</span></div>
+          <div class="skill">Product Operations<span>Store listings, app icons, screenshots, privacy policies, app-ads.txt, and release notes.</span></div>
+          <div class="skill">Documentation<span>Audit-ready checklists, technical guides, troubleshooting notes, and escalation templates.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact-band" id="contact">
+    <div class="contact-inner">
+      <div>
+        <h2>Build, publish, improve.</h2>
+        <p>For app support, product work, or software-house collaboration, contact Netsammy.</p>
+      </div>
+      <a class="button primary" href="mailto:netsamabdus@gmail.com">netsamabdus@gmail.com</a>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Abdus — Built with GitHub Pages</p>
+    <div class="footer-inner">
+      <span>&copy; 2026 Netsammy. Built with GitHub Pages.</span>
+      <span><a href="/app-ads.txt">app-ads.txt</a></span>
+    </div>
   </footer>
 </body>
 </html>
