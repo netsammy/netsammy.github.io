@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SMS & Email Scheduler Applications</title>
+    <meta name="description" content="Official Privacy Policy for SMS Scheduler and Email Scheduler Android Applications. Learn about our strict data protection, local storage, and privacy commitments.">
+    <style>
+        :root {
+            --bg-color: #0F172A;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #38BDF8;
+            --secondary: #818CF8;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-green: #34D399;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 15px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p, li {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .permission-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .permission-card strong {
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px;
+            }
+            .header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Privacy Policy</h1>
+        <p>Official Privacy Policy for SMS Scheduler & Email Scheduler Applications</p>
+        <div class="badge">Effective Date: August 08, 2026</div>
+    </div>
+
+    <section>
+        <h2>1. Introduction</h2>
+        <p>This Privacy Policy describes how our <strong>SMS Scheduler Application</strong> and <strong>Email Scheduler Application</strong> ("we", "us", or "our") handle user data, security, and personal privacy. We are committed to absolute data privacy and transparency.</p>
+    </section>
+
+    <section>
+        <h2>2. On-Device Storage & Permissions</h2>
+        <p>Our applications operate primarily on-device. Data is stored locally in your device's encrypted application sandbox. We request only the minimum required Android permissions:</p>
+        
+        <div class="permission-card">
+            <strong>SEND_SMS</strong>
+            <p>Required solely to transmit SMS messages that you explicitly compose and schedule to your designated recipients at the designated delivery time.</p>
+        </div>
+
+        <div class="permission-card">
+            <strong>READ_CONTACTS</strong>
+            <p>Accessed strictly locally on your device to display phonebook contacts when using the contact picker feature. Contacts are never collected, saved externally, or transmitted off your device.</p>
+        </div>
+
+        <div class="permission-card">
+            <strong>INTERNET & ACCESS_NETWORK_STATE</strong>
+            <p>Utilized by Email Scheduler to transmit scheduled emails via SMTP/REST API, and by SMS Scheduler if optional Twilio Cloud Gateway mode is enabled.</p>
+        </div>
+
+        <div class="permission-card">
+            <strong>SCHEDULE_EXACT_ALARM & POST_NOTIFICATIONS</strong>
+            <p>Utilized to guarantee precise millisecond delivery timing for scheduled messages and display local confirmation status alerts.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Data Protection & Privacy Rights</h2>
+        <ul>
+            <li><strong>100% Local Data Control:</strong> All scheduled messages, templates, history logs, and group lists remain stored locally on your device.</li>
+            <li><strong>No Analytics or Telemetry:</strong> We do not track user behavior, collect diagnostic telemetry, or sell personal information.</li>
+            <li><strong>Full Data Erasure:</strong> You can clear history logs, delete templates, or purge all app data at any time via Settings or Android App Info.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Cloud Services (Optional)</h2>
+        <p>If you voluntarily enable optional cloud features (such as <em>Twilio Cloud Gateway Mode</em> or custom <em>SMTP Email Servers</em>), your composed payload (recipient and body text) is transmitted securely over HTTPS/TLS directly to the specified service providers. Please consult <a href="https://www.twilio.com/legal/privacy" target="_blank" rel="noopener">Twilio's Privacy Policy</a> for details on Twilio API data processing.</p>
+    </section>
+
+    <section>
+        <h2>5. Children's Privacy</h2>
+        <p>Our applications do not knowingly collect or solicit personal information from children under the age of 13.</p>
+    </section>
+
+    <section>
+        <h2>6. Contact Us</h2>
+        <p>If you have questions or concerns regarding this Privacy Policy, please contact our support team at:</p>
+        <p><a href="mailto:netsamabdus@gmail.com">netsamabdus@gmail.com</a></p>
+    </section>
+
+    <div class="footer">
+        &copy; 2026 SMS Scheduler & Email Scheduler. All rights reserved.
+    </div>
+</div>
+
+</body>
+</html>
