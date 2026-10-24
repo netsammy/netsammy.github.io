@@ -1,1 +1,8 @@
+# Google AdMob (for Day 29 restoration)
 google.com, pub-1797269464593835, DIRECT, f08c47fec0942fa0
+
+# Unity Ads (Organization Core ID: 18967088218497)
+unityads.unity3d.com, 18967088218497, DIRECT
+
+# Meta Audience Network (Business ID: 1019945703701998)
+facebook.com, 1019945703701998, DIRECT
